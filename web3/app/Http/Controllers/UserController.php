@@ -7,19 +7,19 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function infoPage(){
-        dd('info');
+        return view('user.info');
     }
     public function infoUpdate(){
         dd('info update');
     }
     public function avatarPage(){
-        dd('avatar');
+        return view('user.avatar');
     }
     public function avatarUpdate(){
         dd('avatarupdate');
     }
     public function news()
     {
-        dd('my all news');
+        return view('user.news');
     }
 }

@@ -7,8 +7,6 @@ use Illuminate\Support\Facades\Route;
 
 
 
-
-
 Route::get("/",[\App\Http\Controllers\IndexController::class,'index'])
     ->name('index');
 
@@ -20,20 +18,32 @@ Route::resource('news',\App\Http\Controllers\NewsController::class)
 Route::patch('/news/{id}',[\App\Http\Controllers\NewsController::class,'status'])
     ->name('blog.status');
 
-Route::get('/user',[\App\Models\User::class.'infoPage'])
+
+Route::get('/user', [\App\Http\Controllers\UserController::class, 'infoPage'])
     ->name('user.info');
-Route::put('/user',[\App\Models\User::class.'infoUpdate'])
+
+
+Route::put('/user', [\App\Http\Controllers\UserController::class, 'infoUpdate'])
     ->name('user.info.update');
-Route::get('/user/avatar',[\App\Models\User::class.'avatarPage'])
+
+
+Route::get('/user/avatar', [\App\Http\Controllers\UserController::class, 'avatarPage'])
     ->name('user.avatar');
-Route::put('/user',[\App\Models\User::class.'avatarUpdate'])
+
+
+Route::put('/user/avatar', [\App\Http\Controllers\UserController::class, 'avatarUpdate'])
     ->name('user.avatar.update');
 
-Route::get('/user/news',[\App\Models\User::class.'news'])
+
+Route::get('/user/news', [\App\Http\Controllers\UserController::class, 'news'])
     ->name('user.news');
 
 Route::post('/news/{id}/comment',\App\Http\Controllers\CommentController::class)
     ->name('news.comment');
 
-//login registration
 
+
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
