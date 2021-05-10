@@ -10,7 +10,7 @@
         <div class="right-btn">
             @auth
                 <a href="{{ route('user.info') }}" class="text-dark mr-3 text-decoration-none">
-                    <img width="30" height="30" src="https://cdn.learnku.com/uploads/avatars/14265_1490928350.jpeg!/both/100x100" class="rounded-pill" alt="...">
+                    <img width="30" height="30" src="{{ auth()->user()->avatar ? asset('storage/' . auth()->user()->avatar) : asset('img/default/avatar.jpg') }}" class="rounded-pill" alt="...">
                     {{--                    <span>{{ \Illuminate\Support\Facades\Auth::user()->name }}</span>--}}
                     <span>{{ auth()->user()->name }}</span>
                 </a>

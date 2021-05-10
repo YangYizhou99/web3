@@ -20,14 +20,18 @@
                         edit info
                     </div>
                     <div class="card-body">
-                        <form class="col-md-6 offset-3">
+                        @include('common.error')
+                        @include('common.success')
+                        <form method="post" action="{{route('user.info.update')}}" class="col-md-6 offset-3">
+                            @csrf
+                            @method('PUT')
                             <div class="form-group">
                                 <label for="exampleInputName" class="fs-14 font-weight-bold">username</label>
-                                <input type="text" value="{{auth()->user()->name}}" placeholder="username" class="form-control form-control-sm" id="exampleInputName" aria-describedby="emailHelp">
+                                <input name="name" type="text" value="{{auth()->user()->name}}" placeholder="username" class="form-control form-control-sm" id="exampleInputName" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail" class="fs-14 font-weight-bold">email</label>
-                                <input type="email" value="{{auth()->user()->email}}" placeholder="email" class="form-control form-control-sm" id="exampleInputEmail" aria-describedby="emailHelp">
+                                <input name="email" type="email" value="{{auth()->user()->email}}" placeholder="email" class="form-control form-control-sm" id="exampleInputEmail" aria-describedby="emailHelp">
                             </div>
                             <button type="submit" class="btn btn-primary btn-sm w-100 mt-4 bg-blue text-white">edit</button>
                         </form>

@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('title', 'upadate image')
+@section('title', 'update avatar')
 
 @section('style')
     <style>
@@ -17,13 +17,17 @@
             <div class="col-sm-9 p-0">
                 <div class="card">
                     <div class="card-header bg-white fs-14">
-                        update image
+                        update avatar
                     </div>
                     <div class="card-body">
-                        <form class="col-md-6 offset-3">
+                        @include('common.error')
+                        @include('common.success')
+                        <form method="post" action="{{ route('user.avatar.update') }}" class="col-md-6 offset-3" enctype="multipart/form-data">
+                            @method('PUT')
+                            @csrf
                             <div class="form-group">
-                                <label for="exampleFormControlFile1">image</label>
-                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                <label for="exampleFormControlFile1">choose avatar</label>
+                                <input name="avatar" type="file" class="form-control-file" id="exampleFormControlFile1">
                             </div>
                             <button type="submit" class="btn btn-primary btn-sm w-100 mt-4 bg-blue text-white">update</button>
                         </form>
@@ -39,4 +43,5 @@
 
     </script>
 @endsection
+
 

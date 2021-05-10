@@ -21,10 +21,10 @@
                         <label for="exampleFormControlSelect1">categorical</label>
                         <select class="form-control" id="exampleFormControlSelect1">
                             <option>category</option>
-                            <option selected>php</option>
-                            <option>html</option>
-                            <option>css</option>
-                            <option>js</option>
+                            <option selected>science</option>
+                            <option>education</option>
+                            <option>accident</option>
+                            <option>international</option>
                         </select>
                     </div>
                     <div class="form-group">
