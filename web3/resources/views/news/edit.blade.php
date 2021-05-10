@@ -20,11 +20,10 @@
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">categorical</label>
                         <select class="form-control" id="exampleFormControlSelect1">
-                            <option>category</option>
-                            <option selected>science</option>
-                            <option>education</option>
-                            <option>accident</option>
-                            <option>international</option>
+
+                            @foreach(categories() as $id=>$name)
+                                <option value="{{$id}}">{{$name}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group">

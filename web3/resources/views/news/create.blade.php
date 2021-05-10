@@ -18,13 +18,12 @@
                         <input type="email" class="form-control" id="exampleFormControlInput1">
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">catogorical</label>
+                        <label for="exampleFormControlSelect1">category</label>
                         <select class="form-control" id="exampleFormControlSelect1">
-                            <option>categiry</option>
-                            <option>php</option>
-                            <option>html</option>
-                            <option>css</option>
-                            <option>js</option>
+
+                            @foreach(categories() as $id=>$name)
+                                <option value="{{$id}}">{{$name}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group">

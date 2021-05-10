@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -11,7 +13,15 @@ class UserController extends Controller
     public function infoPage(){
         return view('user.info');
     }
-    public function infoUpdate(Request $request){
+    public function infoUpdate(UserRequest $request){
+//        $validatedData=$request->validate([
+//            'name'=>'required|min:4|max:32',
+//            'email'=>'required|email',
+//        ],[
+//            'name.required'=>'username empty',
+//            'name.min'=>'username less than 4',
+//            'name.max'=>'username more than 32'
+//        ]);
         $name=$request->input('name');
         $email=$request->input('email');
         if (empty($name)||empty($email))

@@ -27,11 +27,17 @@
                             @method('PUT')
                             <div class="form-group">
                                 <label for="exampleInputName" class="fs-14 font-weight-bold">username</label>
-                                <input name="name" type="text" value="{{auth()->user()->name}}" placeholder="username" class="form-control form-control-sm" id="exampleInputName" aria-describedby="emailHelp">
+                                <input name="name" type="text" value="{{auth()->user()->name}}" placeholder="username" class="@error('name') is-invalid @enderror form-control form-control-sm" id="exampleInputName" aria-describedby="emailHelp">
+                                @error('name')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail" class="fs-14 font-weight-bold">email</label>
-                                <input name="email" type="email" value="{{auth()->user()->email}}" placeholder="email" class="form-control form-control-sm" id="exampleInputEmail" aria-describedby="emailHelp">
+                                <input name="email" type="email" value="{{auth()->user()->email}}" placeholder="email" class="@error('email') is-invalid @enderror form-control form-control-sm" id="exampleInputEmail" aria-describedby="emailHelp">
+                                @error('email')
+                                <div class="invalid-feedback">{{$message}}</div>
+                                @enderror
                             </div>
                             <button type="submit" class="btn btn-primary btn-sm w-100 mt-4 bg-blue text-white">edit</button>
                         </form>
